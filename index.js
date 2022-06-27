@@ -72,6 +72,13 @@ app.post('/api/notes', (request, response) => {
   const newNote = {
     id: maxId + 1,
     content: note.content,
+    firstName: note.firstName,
+    lastName: note.lastName,
+    email: note.email,
+    userName: note.userName,
+    foundationName: note.foundationName,
+    password: note.password,
+    phoneNumber: note.phone,
     important: typeof note.important !== 'undefined' ? note.important : false,
     date: new Date().toISOString()
   }
