@@ -13,15 +13,15 @@ app.use(logger)
 let notes = [
   {
     id: 1,
-    firstName: 'Joana1 cargue inicial desde API',
+    firstName: 'Joana1 cargue inicial OTRAVEZ desde API',
     lastName: 'Casallas',
     email: 'joacasallas@gmail.com',
-    userName: 'joacasallas',
+    username: 'joacasallas',
     foundationName: 'Proyecta Studio',
     phoneNumber: '3105625314',
     password: 'Holberton123',
     date: '2021',
-    important: Math.random() > 0.5
+    vendor: Math.random() > 0.5
   }
 ]
 
@@ -60,9 +60,9 @@ app.delete('/api/notes/:id', (request, response) => {
 app.post('/api/notes', (request, response) => {
   const note = request.body
 
-  if (!note || !note.content) {
+  if (!note) {
     return response.status(400).json({
-      error: 'note.content is missing'
+      error: 'note is missing'
     })
   }
 
@@ -71,15 +71,14 @@ app.post('/api/notes', (request, response) => {
 
   const newNote = {
     id: maxId + 1,
-    content: note.content,
     firstName: note.firstName,
     lastName: note.lastName,
     email: note.email,
-    userName: note.userName,
+    username: note.username,
     foundationName: note.foundationName,
     password: note.password,
     phoneNumber: note.phone,
-    important: typeof note.important !== 'undefined' ? note.important : false,
+    vendor: typeof note.vendor !== 'undefined' ? note.vendor : false,
     date: new Date().toISOString()
   }
 

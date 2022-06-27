@@ -2,8 +2,8 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "NUevo usuario",
-    "important": true
+    "username": "New User",
+    "vendor": true
 }
 
 ###
