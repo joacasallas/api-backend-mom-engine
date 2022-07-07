@@ -1,8 +1,6 @@
 const express = require('express')
-const cors = require('cors')
-// const http = require('http') //commun js
-// import http from 'http' // ecmascript moduls
 const app = express()
+const cors = require('cors')
 const logger = require('./loggerMiddleware')
 
 app.use(cors())
@@ -13,7 +11,7 @@ app.use(logger)
 let notes = [
   {
     id: 1,
-    firstName: 'Joana1 cargue inicial OTRAVEZ desde API',
+    firstName: 'Joana1 existente en API',
     lastName: 'Casallas',
     email: 'joacasallas@gmail.com',
     username: 'joacasallas',
@@ -24,13 +22,6 @@ let notes = [
     vendor: Math.random() > 0.5
   }
 ]
-
-/*
-const app = http.createServer((request, response) => {
-    response.writeHead(200, {'Content-Type':'application/json'})
-    response.end(JSON.stringify(notes))
-})
-*/
 
 app.get('/', (request, response) => {
   response.send('<h1>Mom Engine API</h1>')
@@ -94,7 +85,6 @@ app.use((request, response) => {
   })
 })
 
-// const PORT = 3001
 const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
